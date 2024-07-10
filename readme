@@ -1,0 +1,5 @@
+This special version of conts3d will read the eigenvectors
+from a file called 'vectors' and will draw lines in those directions
+passing through the centroid of the points inside or on the contours, 
+at or proximal to the level of the lesser trochanter (as specified
+in the file ltfile.txt .
