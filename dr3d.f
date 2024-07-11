@@ -20,7 +20,6 @@ c     This subroutine generates the 3-D plot of the contours.
       real xcon,ycon,zcon,xvec,yvec,zvec
 
       include 'gl/fgl.h'
-      include 'gl/fdevice.h'
 
 c     This prevents the program from going into the background.
       call foregr
