@@ -34,7 +34,7 @@ c     write(6,*)
       islc=0
 25    continue
         islc=islc+1
-        read(2,3,err=30)cfname(islc)
+        read(2, 3, end=30)cfname(islc)
         call rmspce(cfname(islc))
         if(islc.gt.300)then
           write(6,*)'There are more than 300 contours.'
@@ -76,7 +76,7 @@ c     write(6,*)
       do 83 i=1,200
 c       read centroid (line 1), x,y,z components of unit vectors
 c       and contact points with respective force vectors (alternating)
-        read(1,*,err=86)xvec(i),yvec(i),zvec(i)
+      read(1,*,end=86)xvec(i),yvec(i),zvec(i)
         numvec=i
 83    continue
 86    close(1)
@@ -89,7 +89,7 @@ c     moved up or down and written to file.
 c     check if there is already an ltfile.txt file
       open(21,file='ltfile.txt',status='old',err=22)
 c       there is an existing ltfile; use that value
-        read(21,*,err=22)ltslc
+      read(21,*,end=22)ltslc
 22    continue
       close(21)
 
