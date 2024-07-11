@@ -354,7 +354,8 @@ c       write(6,*)'force point:',point(1),point(2),point(3)
       subroutine rotcon(rotx,axis)
 c     This subroutine sets up rotation
 c     note that you want to use the y coord to indicate rotation about X axis
-      integer * 4 rotx
+      !  FIX: For some reason, this line causes memory seg faults.
+      ! integer * 4 rotx
       character * 1 axis
 
 c     call pushma
@@ -362,7 +363,8 @@ c     call pushma
 
       call drcont
 c     call popmat
-      rotx=0
+      !  FIX: For some reason, this line causes memory seg faults.
+      ! rotx=0
 
       return
       end
