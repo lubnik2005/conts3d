@@ -163,7 +163,7 @@ c         save current lesser trochanter slice number to file and quit
           write(51,*)ltslc
           close(51)
           stop
-800       call color(1)
+800       call c3f(redColor)
           xtext=xcont(nslc,1)
           ytext=ycont(nslc,1)
           ztext=zcont(nslc)
@@ -250,25 +250,38 @@ c     this subroutine clears the screen and draws the contours and vectors
       integer ipt,islc,npts(300),nslc,numvec,ltslc
       integer * 4 ix,iy
       real point(3),xcon,ycon,vcon,xvec,yvec,zvec
-
+      real,dimension(3)::redColor
+      real,dimension(3)::greenColor
+      real,dimension(3)::blueColor
+      real,dimension(3)::magentaColor
+      real,dimension(3)::yellowColor
+      real,dimension(3)::cyanColor
+      real,dimension(3)::whiteColor
+      real,dimension(3)::blackColor
       include 'gl/fgl.h'
 
+      blackColor=(/0.0,0.0,0.0/) ! 0
+      whiteColor=(/1.0,1.0,1.0/) ! 1
+      greenColor=(/0.0,1.0,0.0/) ! 2
+      yellowColor=(/1.0,1.0,0.0/) ! 3
+      blueColor=(/0.0,0.0,1.0/) ! 4
+      redColor=(/1.0,0.0,0.0/) ! 7
       call reshap
 
       if(worb.eq.'b')then
-        call color(0)
+        call c3f(blackColor)
       else
-        call color(7)
+        call c3f(redColor)
       endif
       call clear()
       if(worb.eq.'b')then
-        call color(2)
+        call c3f(greenColor)
       else
-        call color(0)
+        call c3f(blackColor)
       endif
       do 300 islc=1,nslc
        point(3)=zcont(islc)
-       if(islc.eq.ltslc)call color(1)
+       if(islc.eq.ltslc)call c3f(whiteColor)
        call bgnclo()
        do 400 ipt=1,npts(islc)
        point(1)=xcont(islc,ipt)
@@ -278,9 +291,9 @@ c     this subroutine clears the screen and draws the contours and vectors
        call endclo()
        if(islc.eq.ltslc)then
          if(worb.eq.'b')then
-           call color(2)
+           call c3f(greenColor)
          else
-           call color(0)
+           call c3f(blackColor)
          endif
       endif
 300   continue
@@ -289,7 +302,7 @@ c     write(6,*)'point:', point
 
       if(vecyn.eq.'y')then
 c     draw vectors
-      call color(4)
+      call c3f(blueColor)
       do 333 i=2,4
 c       write(6,*)'xvec,yvec,zvec=',xvec(i),yvec(i),zvec(i)
         call bgnlin()
@@ -314,7 +327,7 @@ c       else if(i.eq.5)then
 c         call charst('approx shaft axis',17)
         endif
 333   continue
-      call color(3)
+      call c3f(yellowColor)
       do 444 i=6,numvec,2
         call bgnlin()
         point(1)=xvec(i)
