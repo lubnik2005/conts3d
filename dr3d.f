@@ -54,11 +54,11 @@ c     to the origin. Note that x's and y's are always positive.
       ymin=10000000
       ymax=0
       do 100 islc=1,nslc
-      do 200 ipt=1,npts(islc)
-      if(xcont(islc,ipt).lt.xmin)xmin=xcont(islc,ipt)
-      if(xcont(islc,ipt).gt.xmax)xmax=xcont(islc,ipt)
-      if(ycont(islc,ipt).lt.ymin)ymin=ycont(islc,ipt)
-      if(ycont(islc,ipt).gt.ymax)ymax=ycont(islc,ipt)
+        do 200 ipt=1,npts(islc)
+          if(xcont(islc,ipt).lt.xmin)xmin=xcont(islc,ipt)
+          if(xcont(islc,ipt).gt.xmax)xmax=xcont(islc,ipt)
+          if(ycont(islc,ipt).lt.ymin)ymin=ycont(islc,ipt)
+          if(ycont(islc,ipt).gt.ymax)ymax=ycont(islc,ipt)
 200   continue
 100   continue
       if(zcont(1).lt.zcont(nslc))then
