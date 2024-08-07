@@ -4,7 +4,7 @@
 FC = gfortran
 CC = cc
 FFLAGS = -Wall -Wextra -g -std=legacy
-LFLAGS = -L../ygl -lYgl -L/opt/homebrew/lib -lGL -lGLEW -lX11 -lXext -L/opt/X11/lib -lGLU -lgfortran -lquadmath -lm
+LFLAGS = -L/Users/nlubyanoy/build/ygl -lYgl -L/opt/homebrew/lib -lGL -lGLU -lX11 -lXext -L/opt/X11/lib -lGLU -lgfortran -lquadmath -lm
 
 # Target executable name
 TARGET = conts3d
